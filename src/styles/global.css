@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Readex+Pro:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bodyFont: 'Readex Pro', sans-serif;
+}
+
+@layer base {
+    html,
+    body {
+        font-family: var(--bodyFont);
+        @apply bg-zinc-900;
+    }
+    a {
+        @apply text-purple-700 hover:underline focus:underline underline-offset-4;
+    }
+}
