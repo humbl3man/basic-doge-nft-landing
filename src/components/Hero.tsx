@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaHeart as Heart } from 'react-icons/fa';
+import { BsFillSuitHeartFill as Heart } from 'react-icons/bs';
 
 import dogeImg from '../assets/doge.svg';
 import { COLLECTION_URL } from 'config';
@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <div className="container py-10 px-4 mx-auto max-w-7xl md:flex md:justify-between md:items-center md:py-24">
       <div className="text-center md:text-left">
-        <h1 className="mb-8 text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-purple-300 to-indigo-500 sm:text-9xl">
+        <h1 className="mb-8 text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-orange-200 to-purple-500 sm:text-9xl">
           Minted <br />
           <span className="inline-flex items-center">
             <span className="mr-2">with</span>{' '}

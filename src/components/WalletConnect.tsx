@@ -29,7 +29,7 @@ const WalletConnect = () => {
     <motion.button
       onClick={handleWalletConnect}
       type="button"
-      className="inline-flex items-center py-3 px-4 w-fit text-lg text-white bg-purple-900 hover:bg-purple-800 rounded-3xl transform-gpu origin-center sm:w-auto"
+      className="inline-flex items-center py-3 px-4 w-fit text-lg text-white bg-gradient-to-r from-purple-500 to-orange-500 rounded-3xl transform-gpu origin-center sm:w-auto"
       whileHover={{
         scale: 1.05
       }}
