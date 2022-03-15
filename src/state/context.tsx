@@ -1,59 +1,61 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react';
+
+const ethereum = (window as any).ethereum;
 
 // types
 type AppContextType = {
-  walletConnected: boolean
-  walletAddress: string | null
-  handleWalletConnect: () => void
-}
+  walletConnected: boolean;
+  walletAddress: string | null;
+  handleWalletConnect: () => void;
+};
 type ProviderProps = {
-  children: JSX.Element | JSX.Element[] | string | string[]
-}
+  children: JSX.Element | JSX.Element[] | string | string[];
+};
 
 // declare context
 const defaultContext: AppContextType = {
   walletConnected: false,
   walletAddress: null,
   handleWalletConnect: function () {
-    return undefined
+    return undefined;
   }
-}
-const Context = createContext(defaultContext)
+};
+const Context = createContext(defaultContext);
 
 const Provider = ({ children }: ProviderProps) => {
-  const [walletConnected, setWalletConnected] = useState(false)
-  const [walletAddress, setWalletAddress] = useState<string | null>(null)
+  const [walletConnected, setWalletConnected] = useState(false);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
 
   async function getAddress() {
     try {
-      const [address] = await window.ethereum.request({
+      const [address] = await ethereum.request({
         method: 'eth_requestAccounts'
-      })
-      return address
+      });
+      return address;
     } catch (err: any) {
-      console.error('Unable to get wallet account:', err.message)
+      console.error('Unable to get wallet account:', err.message);
     }
   }
 
   async function connectWallet() {
-    const address = await getAddress()
-    setWalletConnected(true)
-    setWalletAddress(address)
+    const address = await getAddress();
+    setWalletConnected(true);
+    setWalletAddress(address);
   }
 
   useEffect(() => {
-    const eventName = 'accountsChanged'
+    const eventName = 'accountsChanged';
 
-    if (typeof window.ethereum === 'undefined') return
+    if (typeof ethereum === 'undefined') return;
 
     const listener = ([address]: string[]) => {
-      setWalletAddress(address)
-    }
+      setWalletAddress(address);
+    };
 
-    window.ethereum.on(eventName, listener)
+    ethereum.on(eventName, listener);
 
-    return () => window.ethereum.removeListener(eventName, listener)
-  }, [])
+    return () => ethereum.removeListener(eventName, listener);
+  }, []);
 
   return (
     <Context.Provider
@@ -65,8 +67,8 @@ const Provider = ({ children }: ProviderProps) => {
     >
       {children}
     </Context.Provider>
-  )
-}
+  );
+};
 
-export { Provider }
-export default Context
+export { Provider };
+export default Context;
