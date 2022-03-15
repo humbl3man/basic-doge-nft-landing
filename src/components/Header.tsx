@@ -1,5 +1,7 @@
-import React from 'react'
-import WalletConnect from './WalletConnect'
+import React from 'react';
+import WalletConnect from './WalletConnect';
+
+import Logo from '../assets/logo.png';
 
 const Header = () => {
   return (
@@ -8,7 +10,7 @@ const Header = () => {
         <div className="flex items-center mb-4 sm:mb-0">
           <img
             className="block mr-4 w-16 h-16 rounded-full"
-            src="/src/public/site/logo.png"
+            src={Logo}
             alt="Basic Doge Logo"
             width="1500"
             height="1500"
@@ -20,7 +22,7 @@ const Header = () => {
         <WalletConnect />
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
