@@ -12,7 +12,9 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "jest",
-    "lint": "eslint src --max-warnings=0"
+    "test-watch": "jest --watch",
+    "lint": "eslint src --max-warnings=0",
+    "prepare": "husky install"
   },
   "dependencies": {
     "framer-motion": "^6.2.8",
@@ -42,6 +44,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-tailwindcss": "^3.4.4",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "postcss": "^8.4.6",
     "prettier": "2.5.1",

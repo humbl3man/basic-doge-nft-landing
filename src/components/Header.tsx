@@ -1,4 +1,3 @@
-import React from 'react';
 import WalletConnect from './WalletConnect';
 
 import Logo from '../assets/logo.png';
