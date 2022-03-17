@@ -6,13 +6,15 @@ import {
 } from 'react-icons/md';
 import Context from '../state/context';
 
-const ethereum = (window as any).ethereum;
 let copyTimeout: number;
 // component to connect to metamask wallet
 const WalletConnect = () => {
-  const { walletConnected, walletAddress, handleWalletConnect } =
-    useContext(Context);
-  const isMetamaskInstalled = Boolean(ethereum);
+  const {
+    walletConnected,
+    walletAddress,
+    isMetamaskInstalled,
+    handleWalletConnect
+  } = useContext(Context);
   const addressInputRef = useRef<null | HTMLInputElement>(null);
   const [addressCopied, setAddressCopied] = useState(false);
 

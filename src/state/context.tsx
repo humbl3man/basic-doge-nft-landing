@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { isMetamaskInstalled } from 'utils';
 
 const ethereum = (window as any).ethereum;
 
@@ -6,6 +7,7 @@ const ethereum = (window as any).ethereum;
 type AppContextType = {
   walletConnected: boolean;
   walletAddress: string | null;
+  isMetamaskInstalled: boolean;
   handleWalletConnect: () => void;
 };
 type ProviderProps = {
@@ -16,6 +18,7 @@ type ProviderProps = {
 const defaultContext: AppContextType = {
   walletConnected: false,
   walletAddress: null,
+  isMetamaskInstalled: false,
   handleWalletConnect: function () {
     return undefined;
   }
@@ -62,6 +65,7 @@ const Provider = ({ children }: ProviderProps) => {
       value={{
         walletConnected,
         walletAddress,
+        isMetamaskInstalled: isMetamaskInstalled(),
         handleWalletConnect: connectWallet
       }}
     >

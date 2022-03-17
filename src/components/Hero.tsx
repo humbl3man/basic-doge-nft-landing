@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import { BsFillSuitHeartFill as Heart } from 'react-icons/bs';
 
 import dogeImg from '../assets/doge.svg';
-import { COLLECTION_URL } from 'config';
 
-const Hero = () => {
+type HeroProps = {
+  collectionURL: string;
+};
+const Hero: React.FC<HeroProps> = ({ collectionURL }) => {
   return (
     <div className="container py-10 px-4 mx-auto max-w-7xl md:flex md:justify-between md:items-center md:py-24">
       <div className="text-center md:text-left">
@@ -30,9 +32,9 @@ const Hero = () => {
             </motion.span>
           </span>
         </h1>
-        {COLLECTION_URL ? (
+        {collectionURL ? (
           <motion.a
-            href={COLLECTION_URL}
+            href={collectionURL}
             rel="noreferer noopener"
             target="_blank"
             className="inline-block py-4 px-8 text-lg font-bold text-center text-black bg-yellow-500 hover:bg-yellow-400 rounded-full transform-gpu origin-center"
