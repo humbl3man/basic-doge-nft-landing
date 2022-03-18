@@ -1,18 +1,18 @@
 import { fireEvent, render } from '@testing-library/react';
 import WalletConnect from 'components/WalletConnect';
-import Context from 'state/context';
+import Context, { AppContextType } from 'state/context';
+
+const defaultProps: AppContextType = {
+  walletConnected: false,
+  walletAddress: '',
+  isMetamaskInstalled: true,
+  handleWalletConnect: jest.fn()
+};
 
 describe('Components/WalletConnect', () => {
   test('Show metamask wallet connect button', () => {
     const { queryByText } = render(
-      <Context.Provider
-        value={{
-          walletConnected: false,
-          walletAddress: '',
-          isMetamaskInstalled: true,
-          handleWalletConnect: jest.fn()
-        }}
-      >
+      <Context.Provider value={defaultProps}>
         <WalletConnect />
       </Context.Provider>
     );
@@ -23,10 +23,9 @@ describe('Components/WalletConnect', () => {
     const { queryByDisplayValue } = render(
       <Context.Provider
         value={{
+          ...defaultProps,
           walletConnected: true,
-          walletAddress: mockWalletAddress,
-          isMetamaskInstalled: true,
-          handleWalletConnect: jest.fn()
+          walletAddress: mockWalletAddress
         }}
       >
         <WalletConnect />
@@ -44,10 +43,9 @@ describe('Components/WalletConnect', () => {
     const { getByRole, queryByText } = render(
       <Context.Provider
         value={{
+          ...defaultProps,
           walletConnected: true,
-          walletAddress: mockWalletAddress,
-          isMetamaskInstalled: true,
-          handleWalletConnect: jest.fn()
+          walletAddress: mockWalletAddress
         }}
       >
         <WalletConnect />
@@ -62,10 +60,8 @@ describe('Components/WalletConnect', () => {
     const { queryByText } = render(
       <Context.Provider
         value={{
-          walletConnected: false,
-          walletAddress: '',
-          isMetamaskInstalled: false,
-          handleWalletConnect: jest.fn()
+          ...defaultProps,
+          isMetamaskInstalled: false
         }}
       >
         <WalletConnect />

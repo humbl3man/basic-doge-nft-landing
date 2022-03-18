@@ -4,7 +4,7 @@ import { isMetamaskInstalled } from 'utils';
 const ethereum = (window as any).ethereum;
 
 // types
-type AppContextType = {
+export type AppContextType = {
   walletConnected: boolean;
   walletAddress: string | null;
   isMetamaskInstalled: boolean;
