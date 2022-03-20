@@ -1,5 +1,4 @@
 import WalletConnect from './WalletConnect';
-
 import Logo from '../assets/logo.png';
 
 const Header = () => {
@@ -14,7 +13,7 @@ const Header = () => {
             width="1500"
             height="1500"
           />
-          <span className="text-xl font-bold tracking-tighter text-red-50 uppercase md:text-3xl heading-font">
+          <span className="text-xl font-bold tracking-tighter text-red-50 uppercase md:text-3xl">
             Basic Doge
           </span>
         </div>
