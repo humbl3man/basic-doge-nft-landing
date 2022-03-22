@@ -10,28 +10,20 @@ const Hero: React.FC<HeroProps> = ({ collectionURL }) => {
   return (
     <div className="container py-10 px-4 mx-auto max-w-7xl md:flex md:justify-between md:items-center md:py-24">
       <div className="text-center md:text-left">
-        <h1 className="mb-8 text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-orange-200 to-purple-500 sm:text-9xl">
+        <motion.h1
+          initial={{
+            y: -20,
+            opacity: 0.8
+          }}
+          animate={{
+            y: 0,
+            opacity: 1
+          }}
+          className="mb-8 text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-orange-200 to-purple-500 sm:text-9xl"
+        >
           Minted <br />
-          <span className="inline-flex items-center">
-            <span className="mr-2">with</span>{' '}
-            <motion.span
-              className="inline-block"
-              initial={{
-                opacity: 0,
-                y: 25
-              }}
-              animate={{
-                opacity: 1,
-                y: 0
-              }}
-              transition={{
-                delay: 0.25
-              }}
-            >
-              <Heart className="inline text-red-700" />
-            </motion.span>
-          </span>
-        </h1>
+          with <Heart className="inline text-red-700" />
+        </motion.h1>
         {collectionURL ? (
           <motion.a
             href={collectionURL}
@@ -78,15 +70,13 @@ const Hero: React.FC<HeroProps> = ({ collectionURL }) => {
         )}
       </div>
       <div className="flex justify-center mt-8 md:mt-0 md:ml-8">
-        <div className="inline-block object-contain overflow-hidden p-12 mx-auto bg-zinc-800 rounded-full shadow-sm shadow-black drop-shadow-lg">
-          <img
-            className="block mx-auto max-w-xs md:max-w-md"
-            width={400}
-            height={400}
-            src={dogeImg}
-            alt=""
-          />
-        </div>
+        <img
+          className="block mx-auto max-w-xs md:max-w-md"
+          width={600}
+          height={600}
+          src={dogeImg}
+          alt=""
+        />
       </div>
     </div>
   );
