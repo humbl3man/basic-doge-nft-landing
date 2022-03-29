@@ -1,5 +1,8 @@
-# Basic Doge NFT landing page
+# Basic Doge NFT Landing Page
 
-Landing page I built for nft collection I am working on. Collection is coming soon.
 
-https://basicdogeweb3.netlify.app/
+## Description
+I built this landing page to promote my upcoming NFT project.
+
+## URL
+https://basicdogeweb3.netlify.app
